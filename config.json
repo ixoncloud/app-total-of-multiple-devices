@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@ixon-cdk/core/config/schema.json",
+  "prefix": "ixon-se",
+  "components": {
+    "total-of-multiple-devices": {
+      "runner": {
+        "build": {
+          "builder": "@ixon-cdk/svelte-builder:browser",
+          "input": "total-of-multiple-devices.svelte"
+        },
+        "deploy": {
+          "company": "7966-5700-7008-0957-0300",
+          "template": "u61kp6dAXh4N"
+        }
+      }
+    }
+  }
+}
