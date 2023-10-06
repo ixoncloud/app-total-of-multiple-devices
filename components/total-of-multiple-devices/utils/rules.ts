@@ -1,52 +1,61 @@
-function fromNumber(value) {
+export type Rule = {
+  color: string;
+  colorUsage: string;
+  name: string;
+  operator: string;
+  value: any;
+};
+export type Rules = { rule: Rule }[];
+
+function fromNumber(value: string) {
   return Number(value);
 }
 
-function fromString(value) {
+function fromString(value: string) {
   return String(value);
 }
 
-function ruleToPredicate(rule, value) {
+function ruleToPredicate(rule: Rule, value: any) {
   const threshold = rule.value;
   const type = typeof value;
-  if (type !== 'string') {
+  if (type !== "string") {
     switch (rule.operator) {
-      case 'eq':
+      case "eq":
         return fromNumber(value) === fromNumber(threshold);
-      case 'ne':
+      case "ne":
         return fromNumber(value) !== fromNumber(threshold);
-      case 'lt':
+      case "lt":
         return fromNumber(value) < fromNumber(threshold);
-      case 'le':
+      case "le":
         return fromNumber(value) <= fromNumber(threshold);
-      case 'gt':
+      case "gt":
         return fromNumber(value) > fromNumber(threshold);
-      case 'ge':
+      case "ge":
         return fromNumber(value) >= fromNumber(threshold);
     }
   } else {
     const comparison = fromString(value).localeCompare(fromString(threshold));
     switch (rule.operator) {
-      case 'eq':
+      case "eq":
         return comparison === 0;
-      case 'ne':
+      case "ne":
         return comparison !== 0;
-      case 'lt':
+      case "lt":
         return comparison < 0;
-      case 'le':
+      case "le":
         return comparison <= 0;
-      case 'gt':
+      case "gt":
         return comparison > 0;
-      case 'ge':
+      case "ge":
         return comparison >= 0;
     }
   }
 }
 
-export function mapValueToRule(value, rules) {
-  return rules.find(item => ruleToPredicate(item.rule, value));
+export function mapValueToRule(value: any, rules: Rules) {
+  return rules.find((item) => ruleToPredicate(item.rule, value));
 }
 
-export function mapValueToRuleIndex(value, rules) {
-  return rules.findIndex(item => ruleToPredicate(item.rule, value));
+export function mapValueToRuleIndex(value: any, rules: Rules) {
+  return rules.findIndex((item) => ruleToPredicate(item.rule, value));
 }
