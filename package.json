@@ -10,24 +10,27 @@
     "login": "node node_modules/@ixon-cdk/runner login",
     "logout": "node node_modules/@ixon-cdk/runner logout",
     "publish": "node node_modules/@ixon-cdk/runner publish",
-    "simulate": "node node_modules/@ixon-cdk/runner simulate"
+    "simulate": "node node_modules/@ixon-cdk/runner simulate",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@ixon-cdk/core": "^1.1.0-next.3",
-    "@ixon-cdk/runner": "^1.1.0-next.3",
-    "@ixon-cdk/simulator": "^1.1.0-next.3",
-    "@ixon-cdk/svelte-builder": "^1.0.0",
-    "@ixon-cdk/templates": "^1.1.0-next.3",
+    "@ixon-cdk/core": "^1.2.0",
+    "@ixon-cdk/runner": "^1.2.0",
+    "@ixon-cdk/simulator": "^1.2.0",
+    "@ixon-cdk/svelte-builder": "^1.2.0",
+    "@ixon-cdk/templates": "^1.2.0",
+    "@ixon-cdk/types": "^1.2.0",
     "@tsconfig/svelte": "^3.0.0",
+    "@types/jest": "^29.5.5",
+    "@types/luxon": "^3.3.2",
     "@types/tinycolor2": "^1.4.3",
-    "typescript": "^4.6.3"
+    "jest": "^29.7.0",
+    "luxon": "^3.4.3",
+    "ts-jest": "^29.1.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
-    "luxon": "^2.3.1",
     "tinycolor2": "^1.4.2"
   }
 }

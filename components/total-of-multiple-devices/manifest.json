@@ -2,7 +2,7 @@
   "main": "ixon-se-total-of-multiple-devices.min.js",
   "name": "Total Of Multiple Devices",
   "description": "Displays the sum of a single metric value that is shared amongst multiple devices",
-  "version": "73",
+  "version": "75",
   "apiApplication": "KIPhb1ti0JL1",
   "sheetSettings": {
     "defaultCols": 1,
