@@ -101,6 +101,9 @@
   async function setValues(dataService: DataService) {
     const response = await dataService.getDataValueAndText();
 
+    error = "";
+    dataText = "";
+    dataValue = null;
     if (response.error) {
       error = response.error;
     } else {
