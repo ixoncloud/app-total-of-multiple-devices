@@ -132,12 +132,16 @@ export class ApiService {
     for (let index = 0; index < relevantDataSources.length; index++) {
       const bodyObj = {
         source: { publicId: relevantDataSources[index].publicId },
-        start: DateTime.fromMillis(this.context.timeRange.from).toISO({
-          suppressMilliseconds: true,
-        }),
-        end: DateTime.fromMillis(this.context.timeRange.to).toISO({
-          suppressMilliseconds: true,
-        }),
+        start: DateTime.fromMillis(this.context.timeRange.from)
+          .set({ millisecond: 0 })
+          .toISO({
+            suppressMilliseconds: true,
+          }),
+        end: DateTime.fromMillis(this.context.timeRange.to)
+          .set({ millisecond: 0 })
+          .toISO({
+            suppressMilliseconds: true,
+          }),
         tags: [
           {
             slug: variableSlug,
