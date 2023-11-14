@@ -19,7 +19,7 @@ npx cdk login
 ...and run the simulator:
 
 ```sh
-npx cdk simulate state-analysis
+npx cdk simulate total-of-multiple-devices
 ```
 
 ...this opens the simulator app in a browser and builds the component in watch-mode, which means that any changes to the component source files will trigger a rebuild and will auto-reload the simulator.
