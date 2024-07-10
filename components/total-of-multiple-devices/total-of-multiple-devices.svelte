@@ -18,6 +18,7 @@
   let dataValue: number | null = null;
   let dataText = "";
   let error: string;
+  let loading = true;
 
   $: displayValue = dataText || null;
 
@@ -110,6 +111,7 @@
       dataValue = response.dataValue as number;
       dataText = response.dataText as string;
     }
+    loading = false;
   }
 
   // Events
@@ -119,6 +121,7 @@
     await setValues(dataService);
 
     context.ontimerangechange = async () => {
+      loading = true;
       await setValues(dataService);
     };
 
@@ -146,16 +149,25 @@
       {/if}
     </div>
   {/if}
-  {#if error}
-    <p>{error}</p>
-  {/if}
 
-  {#if displayValue !== null}
-    <div
-      class="card-content"
-      class:has-header={hasHeader}
-      style={cardContentTextStyle}
-    >
+  <div
+    class="card-content"
+    class:has-header={hasHeader}
+    style={cardContentTextStyle}
+  >
+    {#if error}
+      <p>{error}</p>
+    {/if}
+    {#if loading}
+      <div
+        class="card-content"
+        class:has-header={hasHeader}
+        style={cardContentTextStyle}
+      >
+        <p>loading...</p>
+      </div>
+    {/if}
+    {#if displayValue !== null}
       {#if hasStaticSize}
         <div class="static" style={staticSizeStyle}>
           <span>{displayValue}</span>
@@ -173,8 +185,8 @@
           </svg>
         </div>
       {/if}
-    </div>
-  {/if}
+    {/if}
+  </div>
 </div>
 
 <style lang="scss">

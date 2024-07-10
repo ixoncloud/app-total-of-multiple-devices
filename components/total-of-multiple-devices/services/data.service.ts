@@ -66,10 +66,10 @@ export class DataService {
               resolve();
             }
 
-            this.dataSourceSlug = dataSource.metric.selector
+            this.dataSourceSlug = dataSource.metric?.selector
               .split(":")[1]
               .split(".")[0];
-            this.variableSlug = dataSource.metric.selector
+            this.variableSlug = dataSource.metric?.selector
               .split(":")[1]
               .split(".")[2];
 
