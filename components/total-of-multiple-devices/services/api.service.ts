@@ -179,7 +179,7 @@ export class ApiService {
           ...points,
           {
             agentId: relevantAgents[index].publicId,
-            dataPoint: response.data.points[0].values.aaa,
+            dataPoint: response.data.points[0]?.values?.aaa || 0,
           },
         ];
       }
